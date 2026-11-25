@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta Institucional: Rosa Quartzo (#F472B6) & Branco Gelo (#F8FAFC) */
+  --background: 210 40% 98%;
+  --foreground: 222 44% 12%;
+
+  --surface: 210 33% 96%;
+  --surface-elevated: 330 35% 99%;
+  --surface-quartz: 330 65% 96%;
+
+  /* Rosa Quartzo e variação profunda para contraste WCAG AA */
+  --primary: 330 86% 70%;
+  --primary-deep: 334 74% 37%;
+  --primary-deep-hover: 334 78% 30%;
+  --primary-foreground: 210 40% 98%;
+
+  --muted: 214 25% 92%;
+  --muted-foreground: 215 19% 38%;
+
+  --border: 214 22% 88%;
+  --border-quartz: 330 48% 84%;
+  --ring: 334 74% 37%;
+
+  --success: 158 64% 32%;
+  --success-soft: 156 50% 94%;
+  --destructive: 0 72% 45%;
+
+  /* Gradientes e sombras em camadas */
+  --gradient-quartz-veil: radial-gradient(
+    80% 60% at 85% 15%,
+    hsl(330 86% 70% / 0.14) 0%,
+    hsl(330 70% 88% / 0.06) 48%,
+    transparent 100%
+  );
+  --gradient-clinical-band: linear-gradient(
+    135deg,
+    hsl(210 40% 98%) 0%,
+    hsl(330 55% 96%) 55%,
+    hsl(210 35% 97%) 100%
+  );
+  --shadow-hairline: 0 1px 2px hsl(222 44% 12% / 0.04);
+  --shadow-card: 0 10px 30px -12px hsl(334 40% 25% / 0.09), 0 2px 6px -1px hsl(222 44% 12% / 0.04);
+  --shadow-elevated: 0 22px 50px -16px hsl(334 45% 22% / 0.14), 0 4px 12px -2px hsl(222 44% 12% / 0.05);
+}
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-surface: hsl(var(--surface));
+  --color-surface-elevated: hsl(var(--surface-elevated));
+  --color-surface-quartz: hsl(var(--surface-quartz));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-deep: hsl(var(--primary-deep));
+  --color-primary-deep-hover: hsl(var(--primary-deep-hover));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-border-quartz: hsl(var(--border-quartz));
+  --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-success-soft: hsl(var(--success-soft));
+  --color-destructive: hsl(var(--destructive));
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+.bg-quartz-veil {
+  background-image: var(--gradient-quartz-veil);
+}
+
+.bg-clinical-band {
+  background-image: var(--gradient-clinical-band);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Textura sutil de grão mineral em baixíssima opacidade */
+.mineral-grain {
+  background-image: radial-gradient(hsl(222 44% 12% / 0.035) 0.75px, transparent 0.75px);
+  background-size: 18px 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
